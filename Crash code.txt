@@ -1,0 +1,35 @@
+<table style="width:100%" id="myTable">
+  <tr>
+    <th>Pickup Address</th>
+    <th>Delivery Address</th>
+    <th>Price</th>
+    <th>Distance to Pickup</th>
+    <th>Delivery Distance</th>
+  </tr>
+</table>
+
+<form style="border:1px solid #ccc" id="myForm">
+  <div class="container">
+
+    <p>Please fill in this form to post a job for our drivers.</p>
+    <hr>
+
+    <label for="pickup-address"><b>Pickup Address</b></label>
+    <input type="text" placeholder="Enter Address" name="pickup" required>
+
+    <label for="delivery-address"><b>Delivery Address</b></label>
+    <input type="text" placeholder="Enter Address" name="delivery" required>
+
+    <label for="price"><b>Price</b></label>
+    <input type="text" placeholder="Enter Price" name="price" required>
+
+    <label for="distance-to-pickup"><b>Distance to Pickup</b></label>
+    <input type="text" placeholder="Enter distance" name="pickup-distance" required>
+
+    <label for="distance-to-delivery"><b>Distance to Delivery</b></label>
+    <input type="text" placeholder="Enter distance" name="delivery-distance" required>
+
+    <button onclick="aFunction()">Post</button>
+
+  </div>
+</form>

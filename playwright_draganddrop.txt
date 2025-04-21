@@ -1,0 +1,30 @@
+  public async dragAndDrop(element1: Locator, element2: Locator,Xcoordinates:number,Ycoordinates:number) {
+await element1?.scrollIntoViewIfNeeded();
+await element1.hover();
+await this.page1.mouse.down();
+await element2.hover();//this step is important need to add the same element you need to replace
+await this.page1.mouse.move(Xcoordinates,Ycoordinates);
+await this.page1.mouse.up();
+
+}
+
+//need to use this methode when performing drag and drop
+ public async printXYCoordinates(elementSelector: string) {
+
+const element = await this.page1.$(elementSelector); 
+await element?.scrollIntoViewIfNeeded();
+
+if (element) {
+    const coordinates = await element.evaluate((el) => {
+      const rect = el.getBoundingClientRect();
+      return { x: rect.left, y: rect.top };
+    });
+
+    // Print the coordinates
+    console.log(`Element coordinates: x=${coordinates.x}, y=${coordinates.y}`);
+  } else {
+    console.log('Element not found');
+  }
+
+
+ }

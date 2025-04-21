@@ -1,0 +1,18 @@
+const fs   = require('fs');
+    // Read your file into a buffer.
+const buffer = fs.readFileSync('src/actions/abc.jpg');
+
+// Create the DataTransfer and File
+const dataTransfer = await this.page1.evaluateHandle((data) => {
+    const dt = new DataTransfer();
+    // Convert the buffer to a hex array
+    const file = new File([data.toString('hex')], 'abc.jpg', { type: 'image/jpeg' });
+    dt.items.add(file);
+    return dt;
+}, buffer);
+
+// Now dispatch
+await this.page1.dispatchEvent('body > div > form', 'drop', { dataTransfer });
+
+
+Note : Use this methode only when the "setInputfiles" methode fails
